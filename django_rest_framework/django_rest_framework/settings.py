@@ -73,12 +73,13 @@ WSGI_APPLICATION = "django_rest_framework.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "django-react",
+        "NAME": "django_react",
         "USER": "root",
-        "PASSWORD": "root",
+        "PASSWORD": "kevinalpizar1998@PUTOamo",
         "HOST": "mysql",
         "PORT": "3306",
     }
