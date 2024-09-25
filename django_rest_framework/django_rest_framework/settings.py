@@ -25,8 +25,14 @@ SECRET_KEY = "django-insecure-2k*h)wzpp-me37vik#w1qju5jvj#$tgry8h*4riya7o3ul87&@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
+ALLOWED_HOSTS = [] 
+CORS_ALLOWED_ORIGINS = [
+"http://localhost:5173",
+"http://127.0.0.1:5173",
+"http://react_app:5173",
+#Application definition
+]
 
 # Application definition
 
@@ -37,8 +43,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "api.apps.ApiConfig",
+    "rest_framework",
+    "corsheaders",
 ]
-
+##Estamos registrrando el api como una app
+##Regiistra djangoframework para registrar la comunicacion
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -46,8 +56,12 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",  # CorsMiddleware should be before CommonMiddleware for CORS to work properly
+    "django.middleware.common.CommonMiddleware",
+    
+  
 ]
+
 
 ROOT_URLCONF = "django_rest_framework.urls"
 
